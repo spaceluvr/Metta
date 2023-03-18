@@ -275,16 +275,16 @@ class DonorForm extends StatelessWidget{
                 height: 50,
               ),
               
-              ElevatedButton(
-                onPressed: (){
-                  if (_formKey.currentState!.validate()){
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Processing Data')),
-                    );
-                  }
-                },
-                child: const Text('Submit'),
-              ),
+                ElevatedButton(
+                  onPressed: (){
+                    if (_formKey.currentState!.validate()){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                    }
+                  },
+                  child: const Text('Submit'),
+                ),
               const SizedBox(
                 height: 50,
               ),
@@ -305,10 +305,135 @@ class Volunteer extends StatefulWidget{
 class _VolunteerState extends State<Volunteer> {
   @override
   Widget build(BuildContext context){
-    return const Scaffold(
-      body: Center(
-        child: Text('very inch resting'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+      ),
+      body: VolunteerForm(),
+    );
+  }
+}
+
+class VolunteerForm extends StatelessWidget{
+  VolunteerForm({super.key});
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context){
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    return Form(
+      key: _formKey,
+      child: Material(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              const SizedBox(
+                height: 25,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width*0.9,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Name',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    }
+                  ),
+                ),
+              ),
+        
+              const SizedBox(
+                height: 15,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width*0.9,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Phone number',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    }
+                  ),
+                ),
+              ),
+        
+              const SizedBox(
+                height: 15,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width*0.9,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Vehicle Type',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    }
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 15,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width*0.9,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Vehicle Number',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    }
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 50,
+              ),
+              
+                ElevatedButton(
+                  onPressed: (){
+                    if (_formKey.currentState!.validate()){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                    }
+                  },
+                  child: const Text('Submit'),
+                ),
+              const SizedBox(
+                height: 50,
+              ),
+            ]
+          ),
         ),
+      ),
     );
   }
 }
@@ -322,10 +447,94 @@ class Receiver extends StatefulWidget{
 class _ReceiverState extends State<Receiver> {
   @override
   Widget build(BuildContext context){
-    return const Scaffold(
-      body: Center(
-        child: Text('extremely inch resting'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+      ),
+      body: ReceiverForm(),
+    );
+  }
+}
+
+class ReceiverForm extends StatelessWidget{
+  ReceiverForm({super.key});
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context){
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+
+    return Form(
+      key: _formKey,
+      child: Material(
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: height*0.25,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width*0.9,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Name',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    }
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 15,
+              ),
+              Center(
+                child: SizedBox(
+                  width: width*0.9,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: 'Phone number',
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    }
+                  ),
+                ),
+              ),
+
+              const SizedBox(
+                height: 40,
+              ),
+        
+                ElevatedButton(
+                  onPressed: (){
+                    if (_formKey.currentState!.validate()){
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Processing Data')),
+                      );
+                    }
+                  },
+                  child: const Text('Login'),
+                ),
+             
+              const SizedBox(
+                height: 50,
+              ),
+            ]
+          ),
         ),
+      ),
     );
   }
 }
