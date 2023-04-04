@@ -1,8 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'donor.dart';
 import 'receiver.dart';
+import 'volunteer.dart';
 
-void main() => runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget{
   const MyApp({super.key});
@@ -81,146 +88,3 @@ class _HomeState extends State<Home> {
       );
   }
 }
-
-class Volunteer extends StatefulWidget{
-  const Volunteer({super.key});
-  @override
-  State<Volunteer> createState() => _VolunteerState();
-}
-
-class _VolunteerState extends State<Volunteer> {
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: VolunteerForm(),
-    );
-  }
-}
-
-class VolunteerForm extends StatelessWidget{
-  VolunteerForm({super.key});
-  final _formKey = GlobalKey<FormState>();
-
-  @override
-  Widget build(BuildContext context){
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
-    return Form(
-      key: _formKey,
-      child: Material(
-        child: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              const SizedBox(
-                height: 25,
-              ),
-              Center(
-                child: SizedBox(
-                  width: width*0.9,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Name',
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    }
-                  ),
-                ),
-              ),
-        
-              const SizedBox(
-                height: 15,
-              ),
-              Center(
-                child: SizedBox(
-                  width: width*0.9,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Phone number',
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    }
-                  ),
-                ),
-              ),
-        
-              const SizedBox(
-                height: 15,
-              ),
-              Center(
-                child: SizedBox(
-                  width: width*0.9,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Vehicle Type',
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    }
-                  ),
-                ),
-              ),
-
-              const SizedBox(
-                height: 15,
-              ),
-              Center(
-                child: SizedBox(
-                  width: width*0.9,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(),
-                      labelText: 'Vehicle Number',
-                    ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Please enter some text';
-                      }
-                      return null;
-                    }
-                  ),
-                ),
-              ),
-
-              const SizedBox(
-                height: 50,
-              ),
-              
-                ElevatedButton(
-                  onPressed: (){
-                    if (_formKey.currentState!.validate()){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
-                      );
-                    }
-                  },
-                  child: const Text('Submit'),
-                ),
-              const SizedBox(
-                height: 50,
-              ),
-            ]
-          ),
-        ),
-      ),
-    );
-  }
-}
-

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "88061772717",
+    "firebase_url": "https://metta-87b5e-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "metta-87b5e",
+    "storage_bucket": "metta-87b5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88061772717:android:af7d7df8a85c8efec19724",
+        "android_client_info": {
+          "package_name": "com.example.gdsc_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88061772717-hik0migfrqdi04qkcvppiqq1fokrb07o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwVsWtQW2JK0GhDRRjVkK_aKTnp_LDMhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88061772717-hik0migfrqdi04qkcvppiqq1fokrb07o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "88061772717-ku69e9mhsqm4j9k1nms7ablskn1auh1h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gdsc1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
